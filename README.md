@@ -1,4 +1,4 @@
-#Nmap Vulnerability Scan and Kibana Visualization of Metasploitable 2
+# Nmap Vulnerability Scan and Kibana Visualization of Metasploitable 2
 
 This project demonstrates an Nmap vulnerability scan performed on a Metasploitable 2 virtual machine in my home lab. The scan results were analyzed and visualized using the ELK stack (Elasticsearch, Logstash, and Kibana) to create a detailed report and dashboards for easy information retrieval.
 
