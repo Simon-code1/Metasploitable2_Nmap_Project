@@ -103,13 +103,13 @@ Designed Kibana dashboards to present:
 The following screenshots from the Kibana dashboard summarize the findings:
 
 - **OS Types**:
-  ![OS Types](OS%20Type.png)
+  ![OS Types](Project%20Screenshots%20from%20Kibana%20dashboard/OS%20Type.png)
 - **Port Vulnerabilities**:
-  ![Port Vulnerabilities](Port%20Vulnerabilities.png)
+  ![Port Vulnerabilities](Project%20Screenshots%20from%20Kibana%20dashboard/Port%20Vulnerabilities.png)
 - **Service Information**:
-  ![Service Information](Service%20information.png)
+  ![Service Information](Project%20Screenshots%20from%20Kibana%20dashboard/Service%20information.png)
 - **Port Enumeration**:
-  ![Port Enumeration](Port%20Enumeration.png)
+  ![Port Enumeration](Project%20Screenshots%20from%20Kibana%20dashboard/Port%20Enumeration.png)
 
 ### 7. Key Findings
 
