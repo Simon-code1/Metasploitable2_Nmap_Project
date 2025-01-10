@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.94SVN scan initiated Tue Jul 23 17:17:32 2024 as: nmap -A -p- -&#45;script vuln -oX scan_result1.xml 192.168.56.102 -->
+<nmaprun scanner="nmap" args="nmap -A -p- -&#45;script vuln -oX scan_result1.xml 192.168.56.102" start="1721769452" startstr="Tue Jul 23 17:17:32 2024" version="7.94SVN" xmloutputversion="1.05">
+<scaninfo type="connect" protocol="tcp" numservices="65535" services="1-65535"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="unknown-response" reason_ttl="0"/>
+<address addr="192.168.56.102" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1721769465" endtime="1721769920"><status state="up" reason="syn-ack" reason_ttl="0"/>
+<address addr="192.168.56.102" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="65505">
+<extrareasons reason="conn-refused" count="65505" proto="tcp" ports="1-20,24,26-52,54-79,81-110,112-138,140-444,446-511,515-1098,1100-1523,1525-2048,2050-2120,2122-3305,3307-3631,3633-5431,5433-5899,5901-5999,6001-6666,6668-6696,6698-8008,8010-8179,8181-8786,8788-36673,36675-58078,58080-59153,59155-59734,59736-65535"/>
+</extraports>
+<port protocol="tcp" portid="21"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="ftp" product="vsftpd" version="2.3.4" ostype="Unix" method="probed" conf="10"><cpe>cpe:/a:vsftpd:vsftpd:2.3.4</cpe></service><script id="ftp-vsftpd-backdoor" output="&#xa;  VULNERABLE:&#xa;  vsFTPd version 2.3.4 backdoor&#xa;    State: VULNERABLE (Exploitable)&#xa;    IDs:  BID:48539  CVE:CVE-2011-2523&#xa;      vsFTPd version 2.3.4 backdoor, this was reported on 2011-07-04.&#xa;    Disclosure date: 2011-07-03&#xa;    Exploit results:&#xa;      Shell command: id&#xa;      Results: uid=0(root) gid=0(root)&#xa;    References:&#xa;      http://scarybeastsecurity.blogspot.com/2011/07/alert-vsftpd-download-backdoored.html&#xa;      https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/unix/ftp/vsftpd_234_backdoor.rb&#xa;      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2523&#xa;      https://www.securityfocus.com/bid/48539&#xa;"><table key="CVE-2011-2523">
+<elem key="title">vsFTPd version 2.3.4 backdoor</elem>
+<elem key="state">VULNERABLE (Exploitable)</elem>
+<table key="ids">
+<elem>BID:48539</elem>
+<elem>CVE:CVE-2011-2523</elem>
+</table>
+<table key="description">
+<elem>vsFTPd version 2.3.4 backdoor, this was reported on 2011-07-04.</elem>
+</table>
+<table key="dates">
+<table key="disclosure">
+<elem key="year">2011</elem>
+<elem key="month">07</elem>
+<elem key="day">03</elem>
+</table>
+</table>
+<elem key="disclosure">2011-07-03</elem>
+<table key="exploit_results">
+<elem>Shell command: id</elem>
+<elem>Results: uid=0(root) gid=0(root)</elem>
+</table>
+<table key="refs">
+<elem>http://scarybeastsecurity.blogspot.com/2011/07/alert-vsftpd-download-backdoored.html</elem>
+<elem>https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/unix/ftp/vsftpd_234_backdoor.rb</elem>
+<elem>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2523</elem>
+<elem>https://www.securityfocus.com/bid/48539</elem>
+</table>
+</table>
+</script></port>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="ssh" product="OpenSSH" version="4.7p1 Debian 8ubuntu1" extrainfo="protocol 2.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:4.7p1</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service></port>
+<port protocol="tcp" portid="23"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="telnet" product="Linux telnetd" ostype="Linux" method="probed" conf="10"><cpe>cpe:/o:linux:linux_kernel</cpe></service></port>
+<port protocol="tcp" portid="25"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="smtp" product="Postfix smtpd" hostname=" metasploitable.localdomain" method="probed" conf="10"><cpe>cpe:/a:postfix:postfix</cpe></service><script id="smtp-vuln-cve2010-4344" output="&#xa;  The SMTP server is not Exim: NOT VULNERABLE&#xa;"/><script id="ssl-poodle" output="&#xa;  VULNERABLE:&#xa;  SSL POODLE information leak&#xa;    State: VULNERABLE&#xa;    IDs:  BID:70574  CVE:CVE-2014-3566&#xa;          The SSL protocol 3.0, as used in OpenSSL through 1.0.1i and other&#xa;          products, uses nondeterministic CBC padding, which makes it easier&#xa;          for man-in-the-middle attackers to obtain cleartext data via a&#xa;          padding-oracle attack, aka the &quot;POODLE&quot; issue.&#xa;    Disclosure date: 2014-10-14&#xa;    Check results:&#xa;      TLS_RSA_WITH_AES_128_CBC_SHA&#xa;    References:&#xa;      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3566&#xa;      https://www.openssl.org/~bodo/ssl-poodle.pdf&#xa;      https://www.imperialviolet.org/2014/10/14/poodle.html&#xa;      https://www.securityfocus.com/bid/70574&#xa;"><table key="CVE-2014-3566">
+<elem key="title">SSL POODLE information leak</elem>
+<elem key="state">VULNERABLE</elem>
+<table key="ids">
+<elem>BID:70574</elem>
+<elem>CVE:CVE-2014-3566</elem>
+</table>
+<table key="description">
+<elem>    The SSL protocol 3.0, as used in OpenSSL through 1.0.1i and other&#xa;    products, uses nondeterministic CBC padding, which makes it easier&#xa;    for man-in-the-middle attackers to obtain cleartext data via a&#xa;    padding-oracle attack, aka the &quot;POODLE&quot; issue.</elem>
+</table>
+<table key="dates">
+<table key="disclosure">
+<elem key="year">2014</elem>
+<elem key="month">10</elem>
+<elem key="day">14</elem>
+</table>
+</table>
+<elem key="disclosure">2014-10-14</elem>
+<table key="check_results">
+<elem>TLS_RSA_WITH_AES_128_CBC_SHA</elem>
+</table>
+<table key="refs">
+<elem>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3566</elem>
+<elem>https://www.openssl.org/~bodo/ssl-poodle.pdf</elem>
+<elem>https://www.imperialviolet.org/2014/10/14/poodle.html</elem>
+<elem>https://www.securityfocus.com/bid/70574</elem>
+</table>
+</table>
+</script><script id="ssl-dh-params" output="&#xa;  VULNERABLE:&#xa;  Anonymous Diffie-Hellman Key Exchange MitM Vulnerability&#xa;    State: VULNERABLE&#xa;      Transport Layer Security (TLS) services that use anonymous&#xa;      Diffie-Hellman key exchange only provide protection against passive&#xa;      eavesdropping, and are vulnerable to active man-in-the-middle attacks&#xa;      which could completely compromise the confidentiality and integrity&#xa;      of any data exchanged over the resulting session.&#xa;    Check results:&#xa;      ANONYMOUS DH GROUP 1&#xa;            Cipher Suite: TLS_DH_anon_EXPORT_WITH_RC4_40_MD5&#xa;            Modulus Type: Safe prime&#xa;            Modulus Source: Unknown/Custom-generated&#xa;            Modulus Length: 512&#xa;            Generator Length: 8&#xa;            Public Key Length: 512&#xa;    References:&#xa;      https://www.ietf.org/rfc/rfc2246.txt&#xa;  &#xa;  Transport Layer Security (TLS) Protocol DHE_EXPORT Ciphers Downgrade MitM (Logjam)&#xa;    State: VULNERABLE&#xa;    IDs:  BID:74733  CVE:CVE-2015-4000&#xa;      The Transport Layer Security (TLS) protocol contains a flaw that is&#xa;      triggered when handling Diffie-Hellman key exchanges defined with&#xa;      the DHE_EXPORT cipher. This may allow a man-in-the-middle attacker&#xa;      to downgrade the security of a TLS session to 512-bit export-grade&#xa;      cryptography, which is significantly weaker, allowing the attacker&#xa;      to more easily break the encryption and monitor or tamper with&#xa;      the encrypted stream.&#xa;    Disclosure date: 2015-5-19&#xa;    Check results:&#xa;      EXPORT-GRADE DH GROUP 1&#xa;            Cipher Suite: TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA&#xa;            Modulus Type: Safe prime&#xa;            Modulus Source: Unknown/Custom-generated&#xa;            Modulus Length: 512&#xa;            Generator Length: 8&#xa;            Public Key Length: 512&#xa;    References:&#xa;      https://weakdh.org&#xa;      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000&#xa;      https://www.securityfocus.com/bid/74733&#xa;  &#xa;  Diffie-Hellman Key Exchange Insufficient Group Strength&#xa;    State: VULNERABLE&#xa;      Transport Layer Security (TLS) services that use Diffie-Hellman groups&#xa;      of insufficient strength, especially those using one of a few commonly&#xa;      shared groups, may be susceptible to passive eavesdropping attacks.&#xa;    Check results:&#xa;      WEAK DH GROUP 1&#xa;            Cipher Suite: TLS_DHE_RSA_WITH_DES_CBC_SHA&#xa;            Modulus Type: Safe prime&#xa;            Modulus Source: postfix builtin&#xa;            Modulus Length: 1024&#xa;            Generator Length: 8&#xa;            Public Key Length: 1024&#xa;    References:&#xa;      https://weakdh.org&#xa;"><table key="NMAP-43">
+<elem key="title">Anonymous Diffie-Hellman Key Exchange MitM Vulnerability</elem>
+<elem key="state">VULNERABLE</elem>
+<table key="description">
+<elem>Transport Layer Security (TLS) services that use anonymous&#xa;Diffie-Hellman key exchange only provide protection against passive&#xa;eavesdropping, and are vulnerable to active man-in-the-middle attacks&#xa;which could completely compromise the confidentiality and integrity&#xa;of any data exchanged over the resulting session.</elem>
+</table>
+<table key="check_results">
+<elem>ANONYMOUS DH GROUP 1&#xa;      Cipher Suite: TLS_DH_anon_EXPORT_WITH_RC4_40_MD5&#xa;      Modulus Type: Safe prime&#xa;      Modulus Source: Unknown/Custom-generated&#xa;      Modulus Length: 512&#xa;      Generator Length: 8&#xa;      Public Key Length: 512</elem>
+</table>
+<table key="refs">
+<elem>https://www.ietf.org/rfc/rfc2246.txt</elem>
+</table>
+</table>
+<table key="CVE-2015-4000">
+<elem key="title">Transport Layer Security (TLS) Protocol DHE_EXPORT Ciphers Downgrade MitM (Logjam)</elem>
+<elem key="state">VULNERABLE</elem>
+<table key="ids">
+<elem>BID:74733</elem>
+<elem>CVE:CVE-2015-4000</elem>
+</table>
+<table key="description">
+<elem>The Transport Layer Security (TLS) protocol contains a flaw that is&#xa;triggered when handling Diffie-Hellman key exchanges defined with&#xa;the DHE_EXPORT cipher. This may allow a man-in-the-middle attacker&#xa;to downgrade the security of a TLS session to 512-bit export-grade&#xa;cryptography, which is significantly weaker, allowing the attacker&#xa;to more easily break the encryption and monitor or tamper with&#xa;the encrypted stream.</elem>
+</table>
+<table key="dates">
+<table key="disclosure">
+<elem key="year">2015</elem>
+<elem key="month">5</elem>
+<elem key="day">19</elem>
+</table>
+</table>
+<elem key="disclosure">2015-5-19</elem>
+<table key="check_results">
+<elem>EXPORT-GRADE DH GROUP 1&#xa;      Cipher Suite: TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA&#xa;      Modulus Type: Safe prime&#xa;      Modulus Source: Unknown/Custom-generated&#xa;      Modulus Length: 512&#xa;      Generator Length: 8&#xa;      Public Key Length: 512</elem>
+</table>
+<table key="refs">
+<elem>https://weakdh.org</elem>
+<elem>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000</elem>
+<elem>https://www.securityfocus.com/bid/74733</elem>
+</table>
+</table>
+<table key="NMAP-44">
+<elem key="title">Diffie-Hellman Key Exchange Insufficient Group Strength</elem>
+<elem key="state">VULNERABLE</elem>
+<table key="description">
+<elem>Transport Layer Security (TLS) services that use Diffie-Hellman groups&#xa;of insufficient strength, especially those using one of a few commonly&#xa;shared groups, may be susceptible to passive eavesdropping attacks.</elem>
+</table>
+<table key="check_results">
+<elem>WEAK DH GROUP 1&#xa;      Cipher Suite: TLS_DHE_RSA_WITH_DES_CBC_SHA&#xa;      Modulus Type: Safe prime&#xa;      Modulus Source: postfix builtin&#xa;      Modulus Length: 1024&#xa;      Generator Length: 8&#xa;      Public Key Length: 1024</elem>
+</table>
+<table key="refs">
+<elem>https://weakdh.org</elem>
+</table>
+</table>
+</script><script id="sslv2-drown" output="ERROR: Script execution failed (use -d to debug)"/></port>
+<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="domain" product="ISC BIND" version="9.4.2" method="probed" conf="10"><cpe>cpe:/a:isc:bind:9.4.2</cpe></service></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="http" product="Apache httpd" version="2.2.8" extrainfo="(Ubuntu) DAV/2" method="probed" conf="10"><cpe>cpe:/a:apache:http_server:2.2.8</cpe></service><script id="http-sql-injection" output="&#xa;  Possible sqli for queries:&#xa;    http://192.168.56.102:80/dav/?C=N%3BO%3DD%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/dav/?C=D%3BO%3DA%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/dav/?C=M%3BO%3DA%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/dav/?C=S%3BO%3DA%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=documentation%2Fvulnerabilities.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?do=toggle-hints%27%20OR%20sqlspider&amp;page=home.php&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=user-poll.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=framing.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=view-someones-blog.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=register.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=php-errors.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=login.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=html5-storage.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=credits.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=captured-data.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=home.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=text-file-viewer.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=text-file-viewer.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=user-info.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=pen-test-tool-lookup.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?username=anonymous&amp;page=password-generator.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=add-to-your-blog.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?do=toggle-security%27%20OR%20sqlspider&amp;page=home.php&#xa;    http://192.168.56.102:80/mutillidae/?page=show-log.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=notes.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=usage-instructions.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=documentation%2Fhow-to-access-Mutillidae-over-Virtual-Box-network.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=installation.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=change-log.htm%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=user-info.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=view-someones-blog.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=site-footer-xss-discussion.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=browser-info.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=secret-administrative-pages.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=dns-lookup.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=capture-data.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=arbitrary-file-inclusion.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=source-viewer.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=set-background-color.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=credits.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=show-log.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=source-viewer.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=add-to-your-blog.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=login.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/rdiff/TWiki/TWikiHistory?rev1=1.9%27%20OR%20sqlspider&amp;rev2=1.8&#xa;    http://192.168.56.102:80/rdiff/TWiki/TWikiHistory?rev1=1.9&amp;rev2=1.8%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/oops/TWiki/TWikiHistory?template=oopsrev%27%20OR%20sqlspider&amp;param1=1.10&#xa;    http://192.168.56.102:80/oops/TWiki/TWikiHistory?template=oopsrev&amp;param1=1.10%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/rdiff/TWiki/TWikiHistory?rev1=1.10%27%20OR%20sqlspider&amp;rev2=1.9&#xa;    http://192.168.56.102:80/rdiff/TWiki/TWikiHistory?rev1=1.10&amp;rev2=1.9%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/view/TWiki/TWikiHistory?rev=1.8%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/rdiff/TWiki/TWikiHistory?rev1=1.8%27%20OR%20sqlspider&amp;rev2=1.7&#xa;    http://192.168.56.102:80/rdiff/TWiki/TWikiHistory?rev1=1.8&amp;rev2=1.7%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/view/TWiki/TWikiHistory?rev=1.9%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/view/TWiki/TWikiHistory?rev=1.7%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/rdiff/TWiki/TWikiHistory?rev1=1.9%27%20OR%20sqlspider&amp;rev2=1.8&#xa;    http://192.168.56.102:80/rdiff/TWiki/TWikiHistory?rev1=1.9&amp;rev2=1.8%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/oops/TWiki/TWikiHistory?template=oopsrev%27%20OR%20sqlspider&amp;param1=1.10&#xa;    http://192.168.56.102:80/oops/TWiki/TWikiHistory?template=oopsrev&amp;param1=1.10%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/view/TWiki/TWikiHistory?rev=1.7%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/rdiff/TWiki/TWikiHistory?rev1=1.8%27%20OR%20sqlspider&amp;rev2=1.7&#xa;    http://192.168.56.102:80/rdiff/TWiki/TWikiHistory?rev1=1.8&amp;rev2=1.7%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/view/TWiki/TWikiHistory?rev=1.8%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/view/TWiki/TWikiHistory?rev=1.9%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/rdiff/TWiki/TWikiHistory?rev1=1.10%27%20OR%20sqlspider&amp;rev2=1.9&#xa;    http://192.168.56.102:80/rdiff/TWiki/TWikiHistory?rev1=1.10&amp;rev2=1.9%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/dav/?C=N%3BO%3DA%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/dav/?C=S%3BO%3DA%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/dav/?C=D%3BO%3DA%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/dav/?C=M%3BO%3DA%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/dav/?C=N%3BO%3DA%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/dav/?C=S%3BO%3DA%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/dav/?C=M%3BO%3DA%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/dav/?C=D%3BO%3DD%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/dav/?C=N%3BO%3DA%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/dav/?C=S%3BO%3DA%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/dav/?C=D%3BO%3DA%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/dav/?C=M%3BO%3DD%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/dav/?C=N%3BO%3DA%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/dav/?C=S%3BO%3DD%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/dav/?C=D%3BO%3DA%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/dav/?C=M%3BO%3DA%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=documentation%2Fvulnerabilities.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=user-poll.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=framing.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=view-someones-blog.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=register.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=login.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=html5-storage.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=credits.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=captured-data.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=home.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=text-file-viewer.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=text-file-viewer.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=user-info.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=pen-test-tool-lookup.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?username=anonymous&amp;page=password-generator.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=add-to-your-blog.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=show-log.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=documentation%2Fhow-to-access-Mutillidae-over-Virtual-Box-network.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=installation.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=change-log.htm%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=user-info.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=view-someones-blog.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=site-footer-xss-discussion.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=browser-info.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=secret-administrative-pages.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=dns-lookup.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=set-background-color.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=capture-data.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=arbitrary-file-inclusion.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=source-viewer.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=credits.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=show-log.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=source-viewer.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=add-to-your-blog.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=login.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=documentation%2Fvulnerabilities.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?do=toggle-hints%27%20OR%20sqlspider&amp;page=home.php&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=user-poll.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=framing.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=view-someones-blog.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=register.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=php-errors.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=login.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=html5-storage.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=credits.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=captured-data.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=home.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=text-file-viewer.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=text-file-viewer.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=user-info.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=pen-test-tool-lookup.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?username=anonymous&amp;page=password-generator.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=add-to-your-blog.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?do=toggle-security%27%20OR%20sqlspider&amp;page=home.php&#xa;    http://192.168.56.102:80/mutillidae/?page=show-log.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=notes.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=usage-instructions.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=documentation%2Fhow-to-access-Mutillidae-over-Virtual-Box-network.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=installation.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=change-log.htm%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=user-info.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=view-someones-blog.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=site-footer-xss-discussion.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=browser-info.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=secret-administrative-pages.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=dns-lookup.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=capture-data.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=arbitrary-file-inclusion.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=source-viewer.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=set-background-color.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=credits.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=show-log.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=source-viewer.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=add-to-your-blog.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=login.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=documentation%2Fvulnerabilities.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=user-poll.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=framing.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=view-someones-blog.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=register.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=login.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=html5-storage.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=credits.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=captured-data.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=home.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=text-file-viewer.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=text-file-viewer.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=user-info.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=pen-test-tool-lookup.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?username=anonymous&amp;page=password-generator.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=add-to-your-blog.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=show-log.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=documentation%2Fhow-to-access-Mutillidae-over-Virtual-Box-network.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=installation.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=change-log.htm%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=capture-data.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=view-someones-blog.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=site-footer-xss-discussion.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=browser-info.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=secret-administrative-pages.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=dns-lookup.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=set-background-color.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=arbitrary-file-inclusion.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=source-viewer.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=credits.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=user-info.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=show-log.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=source-viewer.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=add-to-your-blog.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=login.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=documentation%2Fvulnerabilities.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=user-poll.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=framing.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=register.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=login.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=credits.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=captured-data.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=home.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=text-file-viewer.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=text-file-viewer.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=user-info.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=pen-test-tool-lookup.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?username=anonymous&amp;page=password-generator.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=secret-administrative-pages.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=add-to-your-blog.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=show-log.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=documentation%2Fhow-to-access-Mutillidae-over-Virtual-Box-network.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=installation.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=change-log.htm%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=capture-data.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=rene-magritte.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=view-someones-blog.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=site-footer-xss-discussion.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=browser-info.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=arbitrary-file-inclusion.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=dns-lookup.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=set-background-color.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=source-viewer.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=view-someones-blog.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=credits.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=user-info.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=html5-storage.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=show-log.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=source-viewer.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/index.php?page=add-to-your-blog.php%27%20OR%20sqlspider&#xa;    http://192.168.56.102:80/mutillidae/?page=login.php%27%20OR%20sqlspider&#xa;  Possible sqli for forms:&#xa;    Form at path: /mutillidae/index.php, form&apos;s action: index.php. Fields that might be vulnerable:&#xa;      choice&#xa;      choice&#xa;      choice&#xa;      choice&#xa;      choice&#xa;      choice&#xa;      choice&#xa;      choice&#xa;      choice&#xa;      choice&#xa;      choice&#xa;      choice&#xa;      initials&#xa;"/><script id="http-server-header" output="Apache/2.2.8 (Ubuntu) DAV/2"><elem>Apache/2.2.8 (Ubuntu) DAV/2</elem>
+</script><script id="http-trace" output="TRACE is enabled"/><script id="http-slowloris-check" output="&#xa;  VULNERABLE:&#xa;  Slowloris DOS attack&#xa;    State: LIKELY VULNERABLE&#xa;    IDs:  CVE:CVE-2007-6750&#xa;      Slowloris tries to keep many connections to the target web server open and hold&#xa;      them open as long as possible.  It accomplishes this by opening connections to&#xa;      the target web server and sending a partial request. By doing so, it starves&#xa;      the http server&apos;s resources causing Denial Of Service.&#xa;      &#xa;    Disclosure date: 2009-09-17&#xa;    References:&#xa;      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750&#xa;      http://ha.ckers.org/slowloris/&#xa;"><table key="CVE-2007-6750">
+<elem key="title">Slowloris DOS attack</elem>
+<elem key="state">LIKELY VULNERABLE</elem>
+<table key="ids">
+<elem>CVE:CVE-2007-6750</elem>
+</table>
+<table key="description">
+<elem>Slowloris tries to keep many connections to the target web server open and hold&#xa;them open as long as possible.  It accomplishes this by opening connections to&#xa;the target web server and sending a partial request. By doing so, it starves&#xa;the http server&apos;s resources causing Denial Of Service.&#xa;</elem>
+</table>
+<table key="dates">
+<table key="disclosure">
+<elem key="year">2009</elem>
+<elem key="month">09</elem>
+<elem key="day">17</elem>
+</table>
+</table>
+<elem key="disclosure">2009-09-17</elem>
+<table key="exploit_results">
+</table>
+<table key="refs">
+<elem>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750</elem>
+<elem>http://ha.ckers.org/slowloris/</elem>
+</table>
+</table>
+</script><script id="http-stored-xss" output="Couldn&apos;t find any stored XSS vulnerabilities."/><script id="http-fileupload-exploiter" output="&#xa;  &#xa;    Couldn&apos;t find a file-type field."><table>
+<elem>Couldn&apos;t find a file-type field.</elem>
+</table>
+</script><script id="http-vuln-cve2017-1001000" output="ERROR: Script execution failed (use -d to debug)"/><script id="http-enum" output="&#xa;  /tikiwiki/: Tikiwiki&#xa;  /test/: Test page&#xa;  /phpinfo.php: Possible information file&#xa;  /phpMyAdmin/: phpMyAdmin&#xa;  /doc/: Potentially interesting directory w/ listing on &apos;apache/2.2.8 (ubuntu) dav/2&apos;&#xa;  /icons/: Potentially interesting folder w/ directory listing&#xa;  /index/: Potentially interesting folder&#xa;"/><script id="http-csrf" output="&#xa;Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=192.168.56.102&#xa;  Found the following possible CSRF vulnerabilities: &#xa;    &#xa;    Path: http://192.168.56.102:80/dvwa/&#xa;    Form id: &#xa;    Form action: login.php&#xa;    &#xa;    Path: http://192.168.56.102:80/dvwa/login.php&#xa;    Form id: &#xa;    Form action: login.php&#xa;    &#xa;    Path: http://192.168.56.102:80/twiki/TWikiDocumentation.html&#xa;    Form id: &#xa;    Form action: http://TWiki.org/cgi-bin/passwd/TWiki/WebHome&#xa;    &#xa;    Path: http://192.168.56.102:80/twiki/TWikiDocumentation.html&#xa;    Form id: &#xa;    Form action: http://TWiki.org/cgi-bin/passwd/Main/WebHome&#xa;    &#xa;    Path: http://192.168.56.102:80/twiki/TWikiDocumentation.html&#xa;    Form id: &#xa;    Form action: http://TWiki.org/cgi-bin/edit/TWiki/&#xa;    &#xa;    Path: http://192.168.56.102:80/twiki/TWikiDocumentation.html&#xa;    Form id: &#xa;    Form action: http://TWiki.org/cgi-bin/view/TWiki/TWikiSkins&#xa;    &#xa;    Path: http://192.168.56.102:80/twiki/TWikiDocumentation.html&#xa;    Form id: &#xa;    Form action: http://TWiki.org/cgi-bin/manage/TWiki/ManagingWebs&#xa;    &#xa;    Path: http://192.168.56.102:80/mutillidae/index.php?page=user-poll.php&#xa;    Form id: idpollform&#xa;    Form action: index.php&#xa;"/><script id="http-dombased-xss" output="Couldn&apos;t find any DOM based XSS."/></port>
+<port protocol="tcp" portid="111"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="rpcbind" version="2" extrainfo="RPC #100000" method="probed" conf="10"/><script id="rpcinfo" output="&#xa;  program version    port/proto  service&#xa;  100000  2            111/tcp   rpcbind&#xa;  100000  2            111/udp   rpcbind&#xa;  100003  2,3,4       2049/tcp   nfs&#xa;  100003  2,3,4       2049/udp   nfs&#xa;  100005  1,2,3      40144/udp   mountd&#xa;  100005  1,2,3      58079/tcp   mountd&#xa;  100021  1,3,4      45494/udp   nlockmgr&#xa;  100021  1,3,4      59154/tcp   nlockmgr&#xa;  100024  1          54943/udp   status&#xa;  100024  1          59735/tcp   status&#xa;"><table key="100003">
+<table key="udp">
+<elem key="port">2049</elem>
+<table key="version">
+<elem>2</elem>
+<elem>3</elem>
+<elem>4</elem>
+</table>
+</table>
+<table key="tcp">
+<elem key="port">2049</elem>
+<table key="version">
+<elem>2</elem>
+<elem>3</elem>
+<elem>4</elem>
+</table>
+</table>
+</table>
+<table key="100021">
+<table key="udp">
+<elem key="port">45494</elem>
+<table key="version">
+<elem>1</elem>
+<elem>3</elem>
+<elem>4</elem>
+</table>
+</table>
+<table key="tcp">
+<elem key="port">59154</elem>
+<table key="version">
+<elem>1</elem>
+<elem>3</elem>
+<elem>4</elem>
+</table>
+</table>
+</table>
+<table key="100005">
+<table key="udp">
+<elem key="port">40144</elem>
+<table key="version">
+<elem>1</elem>
+<elem>2</elem>
+<elem>3</elem>
+</table>
+</table>
+<table key="tcp">
+<elem key="port">58079</elem>
+<table key="version">
+<elem>1</elem>
+<elem>2</elem>
+<elem>3</elem>
+</table>
+</table>
+</table>
+<table key="100024">
+<table key="udp">
+<elem key="port">54943</elem>
+<table key="version">
+<elem>1</elem>
+</table>
+</table>
+<table key="tcp">
+<elem key="port">59735</elem>
+<table key="version">
+<elem>1</elem>
+</table>
+</table>
+</table>
+<table key="100000">
+<table key="tcp">
+<elem key="port">111</elem>
+<table key="version">
+<elem>2</elem>
+</table>
+</table>
+<table key="udp">
+<elem key="port">111</elem>
+<table key="version">
+<elem>2</elem>
+</table>
+</table>
+</table>
+</script></port>
+<port protocol="tcp" portid="139"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="netbios-ssn" product="Samba smbd" version="3.X - 4.X" extrainfo="workgroup: WORKGROUP" method="probed" conf="10"><cpe>cpe:/a:samba:samba</cpe></service></port>
+<port protocol="tcp" portid="445"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="netbios-ssn" product="Samba smbd" version="3.X - 4.X" extrainfo="workgroup: WORKGROUP" method="probed" conf="10"><cpe>cpe:/a:samba:samba</cpe></service></port>
+<port protocol="tcp" portid="512"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="exec" product="netkit-rsh rexecd" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:netkit:netkit</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service></port>
+<port protocol="tcp" portid="513"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="login" product="OpenBSD or Solaris rlogind" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="514"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="shell" product="Netkit rshd" method="probed" conf="10"><cpe>cpe:/a:netkit:netkit_rsh</cpe></service></port>
+<port protocol="tcp" portid="1099"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="java-rmi" product="GNU Classpath grmiregistry" method="probed" conf="10"/><script id="rmi-vuln-classloader" output="&#xa;  VULNERABLE:&#xa;  RMI registry default configuration remote code execution vulnerability&#xa;    State: VULNERABLE&#xa;      Default configuration of RMI registry allows loading classes from remote URLs which can lead to remote code execution.&#xa;      &#xa;    References:&#xa;      https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/multi/misc/java_rmi_server.rb&#xa;"><table key="NMAP-11">
+<elem key="title">RMI registry default configuration remote code execution vulnerability</elem>
+<elem key="state">VULNERABLE</elem>
+<table key="description">
+<elem>Default configuration of RMI registry allows loading classes from remote URLs which can lead to remote code execution.&#xa;</elem>
+</table>
+<table key="exploit_results">
+</table>
+<table key="refs">
+<elem>https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/multi/misc/java_rmi_server.rb</elem>
+</table>
+</table>
+</script></port>
+<port protocol="tcp" portid="1524"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="bindshell" product="Metasploitable root shell" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="2049"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="nfs" version="2-4" extrainfo="RPC #100003" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="2121"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="ftp" product="ProFTPD" version="1.3.1" ostype="Unix" method="probed" conf="10"><cpe>cpe:/a:proftpd:proftpd:1.3.1</cpe></service></port>
+<port protocol="tcp" portid="3306"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="mysql" product="MySQL" version="5.0.51a-3ubuntu5" method="probed" conf="10"><cpe>cpe:/a:mysql:mysql:5.0.51a-3ubuntu5</cpe></service><script id="ssl-ccs-injection" output="No reply from server (TIMEOUT)"/><script id="mysql-vuln-cve2012-2122" output="ERROR: Script execution failed (use -d to debug)"/></port>
+<port protocol="tcp" portid="3632"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="distccd" product="distccd" version="v1" extrainfo="(GNU) 4.2.4 (Ubuntu 4.2.4-1ubuntu4)" method="probed" conf="10"/><script id="distcc-cve2004-2687" output="&#xa;  VULNERABLE:&#xa;  distcc Daemon Command Execution&#xa;    State: VULNERABLE (Exploitable)&#xa;    IDs:  CVE:CVE-2004-2687&#xa;    Risk factor: High  CVSSv2: 9.3 (HIGH) (AV:N/AC:M/Au:N/C:C/I:C/A:C)&#xa;      Allows executing of arbitrary commands on systems running distccd 3.1 and&#xa;      earlier. The vulnerability is the consequence of weak service configuration.&#xa;      &#xa;    Disclosure date: 2002-02-01&#xa;    Extra information:&#xa;      &#xa;    uid=1(daemon) gid=1(daemon) groups=1(daemon)&#xa;  &#xa;    References:&#xa;      https://nvd.nist.gov/vuln/detail/CVE-2004-2687&#xa;      https://distcc.github.io/security.html&#xa;      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-2687&#xa;"><table key="CVE-2004-2687">
+<elem key="title">distcc Daemon Command Execution</elem>
+<elem key="state">VULNERABLE (Exploitable)</elem>
+<table key="ids">
+<elem>CVE:CVE-2004-2687</elem>
+</table>
+<table key="scores">
+<elem key="CVSSv2">9.3 (HIGH) (AV:N/AC:M/Au:N/C:C/I:C/A:C)</elem>
+</table>
+<table key="description">
+<elem>Allows executing of arbitrary commands on systems running distccd 3.1 and&#xa;earlier. The vulnerability is the consequence of weak service configuration.&#xa;</elem>
+</table>
+<table key="dates">
+<table key="disclosure">
+<elem key="year">2002</elem>
+<elem key="month">02</elem>
+<elem key="day">01</elem>
+</table>
+</table>
+<elem key="disclosure">2002-02-01</elem>
+<table key="exploit_results">
+</table>
+<table key="extra_info">
+<elem>&#xa;  uid=1(daemon) gid=1(daemon) groups=1(daemon)&#xa;</elem>
+</table>
+<table key="refs">
+<elem>https://nvd.nist.gov/vuln/detail/CVE-2004-2687</elem>
+<elem>https://distcc.github.io/security.html</elem>
+<elem>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-2687</elem>
+</table>
+</table>
+</script></port>
+<port protocol="tcp" portid="5432"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="postgresql" product="PostgreSQL DB" version="8.3.0 - 8.3.7" method="probed" conf="10"><cpe>cpe:/a:postgresql:postgresql:8.3</cpe></service><script id="ssl-ccs-injection" output="&#xa;  VULNERABLE:&#xa;  SSL/TLS MITM vulnerability (CCS Injection)&#xa;    State: VULNERABLE&#xa;    Risk factor: High&#xa;      OpenSSL before 0.9.8za, 1.0.0 before 1.0.0m, and 1.0.1 before 1.0.1h&#xa;      does not properly restrict processing of ChangeCipherSpec messages,&#xa;      which allows man-in-the-middle attackers to trigger use of a zero&#xa;      length master key in certain OpenSSL-to-OpenSSL communications, and&#xa;      consequently hijack sessions or obtain sensitive information, via&#xa;      a crafted TLS handshake, aka the &quot;CCS Injection&quot; vulnerability.&#xa;          &#xa;    References:&#xa;      http://www.cvedetails.com/cve/2014-0224&#xa;      http://www.openssl.org/news/secadv_20140605.txt&#xa;      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0224&#xa;"><table key="NMAP-26">
+<elem key="title">SSL/TLS MITM vulnerability (CCS Injection)</elem>
+<elem key="state">VULNERABLE</elem>
+<table key="description">
+<elem>OpenSSL before 0.9.8za, 1.0.0 before 1.0.0m, and 1.0.1 before 1.0.1h&#xa;does not properly restrict processing of ChangeCipherSpec messages,&#xa;which allows man-in-the-middle attackers to trigger use of a zero&#xa;length master key in certain OpenSSL-to-OpenSSL communications, and&#xa;consequently hijack sessions or obtain sensitive information, via&#xa;a crafted TLS handshake, aka the &quot;CCS Injection&quot; vulnerability.&#xa;    </elem>
+</table>
+<table key="refs">
+<elem>http://www.cvedetails.com/cve/2014-0224</elem>
+<elem>http://www.openssl.org/news/secadv_20140605.txt</elem>
+<elem>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0224</elem>
+</table>
+</table>
+</script><script id="ssl-dh-params" output="&#xa;  VULNERABLE:&#xa;  Diffie-Hellman Key Exchange Insufficient Group Strength&#xa;    State: VULNERABLE&#xa;      Transport Layer Security (TLS) services that use Diffie-Hellman groups&#xa;      of insufficient strength, especially those using one of a few commonly&#xa;      shared groups, may be susceptible to passive eavesdropping attacks.&#xa;    Check results:&#xa;      WEAK DH GROUP 1&#xa;            Cipher Suite: TLS_DHE_RSA_WITH_AES_128_CBC_SHA&#xa;            Modulus Type: Safe prime&#xa;            Modulus Source: Unknown/Custom-generated&#xa;            Modulus Length: 1024&#xa;            Generator Length: 8&#xa;            Public Key Length: 1024&#xa;    References:&#xa;      https://weakdh.org&#xa;"><table key="NMAP-41">
+<elem key="title">Diffie-Hellman Key Exchange Insufficient Group Strength</elem>
+<elem key="state">VULNERABLE</elem>
+<table key="description">
+<elem>Transport Layer Security (TLS) services that use Diffie-Hellman groups&#xa;of insufficient strength, especially those using one of a few commonly&#xa;shared groups, may be susceptible to passive eavesdropping attacks.</elem>
+</table>
+<table key="check_results">
+<elem>WEAK DH GROUP 1&#xa;      Cipher Suite: TLS_DHE_RSA_WITH_AES_128_CBC_SHA&#xa;      Modulus Type: Safe prime&#xa;      Modulus Source: Unknown/Custom-generated&#xa;      Modulus Length: 1024&#xa;      Generator Length: 8&#xa;      Public Key Length: 1024</elem>
+</table>
+<table key="refs">
+<elem>https://weakdh.org</elem>
+</table>
+</table>
+</script><script id="ssl-poodle" output="&#xa;  VULNERABLE:&#xa;  SSL POODLE information leak&#xa;    State: VULNERABLE&#xa;    IDs:  BID:70574  CVE:CVE-2014-3566&#xa;          The SSL protocol 3.0, as used in OpenSSL through 1.0.1i and other&#xa;          products, uses nondeterministic CBC padding, which makes it easier&#xa;          for man-in-the-middle attackers to obtain cleartext data via a&#xa;          padding-oracle attack, aka the &quot;POODLE&quot; issue.&#xa;    Disclosure date: 2014-10-14&#xa;    Check results:&#xa;      TLS_RSA_WITH_AES_128_CBC_SHA&#xa;    References:&#xa;      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3566&#xa;      https://www.openssl.org/~bodo/ssl-poodle.pdf&#xa;      https://www.imperialviolet.org/2014/10/14/poodle.html&#xa;      https://www.securityfocus.com/bid/70574&#xa;"><table key="CVE-2014-3566">
+<elem key="title">SSL POODLE information leak</elem>
+<elem key="state">VULNERABLE</elem>
+<table key="ids">
+<elem>BID:70574</elem>
+<elem>CVE:CVE-2014-3566</elem>
+</table>
+<table key="description">
+<elem>    The SSL protocol 3.0, as used in OpenSSL through 1.0.1i and other&#xa;    products, uses nondeterministic CBC padding, which makes it easier&#xa;    for man-in-the-middle attackers to obtain cleartext data via a&#xa;    padding-oracle attack, aka the &quot;POODLE&quot; issue.</elem>
+</table>
+<table key="dates">
+<table key="disclosure">
+<elem key="year">2014</elem>
+<elem key="month">10</elem>
+<elem key="day">14</elem>
+</table>
+</table>
+<elem key="disclosure">2014-10-14</elem>
+<table key="check_results">
+<elem>TLS_RSA_WITH_AES_128_CBC_SHA</elem>
+</table>
+<table key="refs">
+<elem>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3566</elem>
+<elem>https://www.openssl.org/~bodo/ssl-poodle.pdf</elem>
+<elem>https://www.imperialviolet.org/2014/10/14/poodle.html</elem>
+<elem>https://www.securityfocus.com/bid/70574</elem>
+</table>
+</table>
+</script></port>
+<port protocol="tcp" portid="5900"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="vnc" product="VNC" extrainfo="protocol 3.3" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="6000"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="X11" extrainfo="access denied" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="6667"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="irc" product="UnrealIRCd" hostname="irc.Metasploitable.LAN" method="probed" conf="10"><cpe>cpe:/a:unrealircd:unrealircd</cpe></service><script id="irc-botnet-channels" output="&#xa;  ERROR: Closing Link: [192.168.56.100] (Too many unknown connections from your IP)&#xa;"/></port>
+<port protocol="tcp" portid="6697"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="irc" product="UnrealIRCd" extrainfo="Admin email admin@Metasploitable.LAN" method="probed" conf="10"><cpe>cpe:/a:unrealircd:unrealircd</cpe></service><script id="ssl-ccs-injection" output="No reply from server (TIMEOUT)"/><script id="irc-botnet-channels" output="&#xa;  ERROR: Closing Link: [192.168.56.100] (Too many unknown connections from your IP)&#xa;"/></port>
+<port protocol="tcp" portid="8009"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="ajp13" product="Apache Jserv" extrainfo="Protocol v1.3" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="8180"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="http" product="Apache Tomcat/Coyote JSP engine" version="1.1" method="probed" conf="10"><cpe>cpe:/a:apache:coyote_http_connector:1.1</cpe></service><script id="http-server-header" output="Apache-Coyote/1.1"><elem>Apache-Coyote/1.1</elem>
+</script><script id="http-stored-xss" output="Couldn&apos;t find any stored XSS vulnerabilities."/><script id="http-dombased-xss" output="Couldn&apos;t find any DOM based XSS."/><script id="http-csrf" output="&#xa;Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=192.168.56.102&#xa;  Found the following possible CSRF vulnerabilities: &#xa;    &#xa;    Path: http://192.168.56.102:8180/admin/&#xa;    Form id: username&#xa;    Form action: j_security_check;jsessionid=5E71397FC293072FE610871E678003C5&#xa;"/></port>
+<port protocol="tcp" portid="8787"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="drb" product="Ruby DRb RMI" extrainfo="Ruby 1.8; path /usr/lib/ruby/1.8/drb" method="probed" conf="10"><cpe>cpe:/a:ruby-lang:ruby:1.8</cpe></service></port>
+<port protocol="tcp" portid="36674"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="java-rmi" product="GNU Classpath grmiregistry" method="probed" conf="10"/><script id="rmi-vuln-classloader" output="&#xa;  VULNERABLE:&#xa;  RMI registry default configuration remote code execution vulnerability&#xa;    State: VULNERABLE&#xa;      Default configuration of RMI registry allows loading classes from remote URLs which can lead to remote code execution.&#xa;      &#xa;    References:&#xa;      https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/multi/misc/java_rmi_server.rb&#xa;"><table key="NMAP-7">
+<elem key="title">RMI registry default configuration remote code execution vulnerability</elem>
+<elem key="state">VULNERABLE</elem>
+<table key="description">
+<elem>Default configuration of RMI registry allows loading classes from remote URLs which can lead to remote code execution.&#xa;</elem>
+</table>
+<table key="exploit_results">
+</table>
+<table key="refs">
+<elem>https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/multi/misc/java_rmi_server.rb</elem>
+</table>
+</table>
+</script></port>
+<port protocol="tcp" portid="58079"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="mountd" version="1-3" extrainfo="RPC #100005" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="59154"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="nlockmgr" version="1-4" extrainfo="RPC #100021" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="59735"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="status" version="1" extrainfo="RPC #100024" method="probed" conf="10"/></port>
+</ports>
+<hostscript><script id="smb-vuln-ms10-054" output="false">false</script><script id="smb-vuln-regsvc-dos" output="ERROR: Script execution failed (use -d to debug)"/><script id="smb-vuln-ms10-061" output="false">false</script></hostscript><times srtt="989" rttvar="591" to="100000"/>
+</host>
+<runstats><finished time="1721769920" timestr="Tue Jul 23 17:25:20 2024" summary="Nmap done at Tue Jul 23 17:25:20 2024; 1 IP address (1 host up) scanned in 468.58 seconds" elapsed="468.58" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>
+
