@@ -109,7 +109,7 @@ The following screenshots from the Kibana dashboard summarize the findings:
 - **Service Information**:
   ![Service Information](Project%20Screenshots%20from%20Kibana%20dashboard/Service%20information.png)
 - **Port Enumeration**:
-  ![Port Enumeration](Project%20Screenshots%20from%20Kibana%20dashboard/Port%20Enumeration.png)
+  ![Port Enumeration](Project%20Screenshots%20from%20Kibana%20dashboard/Port%20enumeration.png)
 
 ### 7. Key Findings
 
